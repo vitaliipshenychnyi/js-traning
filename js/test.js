@@ -174,3 +174,167 @@
 // console.log(account); //отримали стан рахунку
 
 // --------------------------------------------------------------
+
+// ===== Підрахунок карт =====
+// let count = 0;
+
+// function cc(card) {
+//   // Змініть код лише під цим рядком
+//   count = 0; //у freeCodeCamp не має бути
+
+//   for (const argument of arguments) {
+//     if (argument >= 2 && argument <= 6) {
+//       count += 1;
+//     } else if (argument >= 7 && argument <= 9) {
+//       count += 0;
+//     } else {
+//       count -= 1;
+//     }
+//   }
+
+//   return count > 0 ? `${count} Bet` : `${count} Hold`;
+
+//   // Змініть код лише над цим рядком
+// }
+
+// console.log(cc(2, 3, 4, 5, 6));
+// console.log(cc(7, 8, 9));
+// console.log(cc(10, 'J', 'Q', 'K', 'A'));
+// console.log(cc(3, 7, 'Q', 8, 'A'));
+// console.log(cc(2, 'J', 9, 2, 7));
+// console.log(cc(2, 2, 10));
+// console.log(cc(3, 2, 'A', 10, 'K'));
+
+// --------------------------------------------------------------
+
+// ===== Завдання 41 автоперевірки модуля 3 =====
+// const atTheOldToad = {
+//   potions: [
+//     { name: 'Speed potion', price: 460 },
+//     { name: 'Dragon breath', price: 780 },
+//     { name: 'Stone skin', price: 520 },
+//   ],
+
+//   getPotions() {
+//     return this.potions;
+//   },
+
+//   addPotion(newPotion) {
+//     const { potions } = this;
+
+//     for (const potion of potions) {
+//       if (potion.name === newPotion.name) {
+//         return `Error! Potion ${newPotion.name} is already in your inventory!`;
+//       }
+//     }
+
+//     potions.push(newPotion);
+//   },
+
+//   removePotion(potionName) {
+//     const { potions } = this;
+
+//     for (let i = 0; i < potions.length; i += 1) {
+//       const { name } = potions[i];
+
+//       if (name === potionName) {
+//         potions.splice(i, 1);
+//       }
+//     }
+//     return `Potion ${potionName} is not in inventory!`;
+//   },
+
+//   updatePotionName(oldName, newName) {
+//     const { potions } = this;
+
+//     for (let i = 0; i < potions.length; i += 1) {
+//       const { name } = potions[i];
+
+//       if (name === oldName) {
+//         potions[i].name = newName;
+//       }
+//     }
+//     return `Potion ${oldName} is not in inventory!`;
+//   },
+// };
+
+// console.log(atTheOldToad.getPotions());
+// console.log(atTheOldToad.addPotion({ name: 'Invisibility', price: 620 }));
+// console.log(atTheOldToad.addPotion({ name: 'Power potion', price: 270 }));
+// console.log(atTheOldToad.addPotion({ name: 'Dragon breath', price: 700 }));
+// console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 240 }));
+// console.log(atTheOldToad.addPotion({ name: 'Dragon breath', price: 700 }));
+// console.log(atTheOldToad.addPotion({ name: 'Stone skin', price: 240 }));
+// console.log(atTheOldToad.removePotion('Dragon breath'));
+// console.log(atTheOldToad.removePotion('Speed potion'));
+// console.log(atTheOldToad.updatePotionName('Dragon breath', 'Polymorth'));
+// console.log(
+//   atTheOldToad.updatePotionName('Stone skin', 'Invulnerability potion'),
+// );
+
+// --------------------------------------------------------------
+
+// ===== Пошук профілю =====
+// /*
+// Є масив об'єктів, які представляють різних людей зі списку контактів.
+// Функція lookUpProfile приймає name та властивість (prop) як аргументи.
+// Функція повинна перевірити, чи name дійсно є ім’ям (firstName) контакту і надана властивість (prop) є властивістю цього контакту.
+// Якщо обидва є істинними, то поверніть значення цієї власності.
+// Якщо name не відповідає жодному контакту, поверніть рядок No such contact.
+// Якщо prop не збігається з жодною дійсною властивістю контакту, що відповідає name, поверніть рядок No such property.
+// */
+
+// const contacts = [
+//   {
+//     firstName: 'Akira',
+//     lastName: 'Laine',
+//     number: '0543236543',
+//     likes: ['Pizza', 'Coding', 'Brownie Points'],
+//   },
+//   {
+//     firstName: 'Harry',
+//     lastName: 'Potter',
+//     number: '0994372684',
+//     likes: ['Hogwarts', 'Magic', 'Hagrid'],
+//   },
+//   {
+//     firstName: 'Sherlock',
+//     lastName: 'Holmes',
+//     number: '0487345643',
+//     likes: ['Intriguing Cases', 'Violin'],
+//   },
+//   {
+//     firstName: 'Kristian',
+//     lastName: 'Vos',
+//     number: 'unknown',
+//     likes: ['JavaScript', 'Gaming', 'Foxes'],
+//   },
+// ];
+
+// function lookUpProfile(name, prop) {
+//   // Змініть код лише під цим рядком
+//   for (const contact of contacts) {
+//     if (contact.firstName === name && contact[prop] !== undefined) {
+//       return contact[prop];
+//     } else if (contact.firstName === name && contact[prop] === undefined) {
+//       return 'No such property';
+//     }
+//   }
+
+//   for (const contact of contacts) {
+//     if (contact.firstName !== name) {
+//       return 'No such contact';
+//     }
+//   }
+//   // Змініть код лише над цим рядком
+// }
+
+// console.log(lookUpProfile('Akira', 'likes'));
+// console.log(lookUpProfile('Kristian', 'lastName'));
+// console.log(lookUpProfile('Sherlock', 'likes'));
+// console.log(lookUpProfile('Harry', 'likes'));
+// console.log(lookUpProfile('Bob', 'number'));
+// console.log(lookUpProfile('Bob', 'potato'));
+// console.log(lookUpProfile('Akira', 'address'));
+
+// --------------------------------------------------------------
