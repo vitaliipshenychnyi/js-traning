@@ -338,3 +338,32 @@
 // console.log(lookUpProfile('Akira', 'address'));
 
 // --------------------------------------------------------------
+
+// ===== Завдання 20 автоперевірки модуля 4 =====
+// const books = [
+//   {
+//     title: 'The Last Kingdom',
+//     author: 'Bernard Cornwell',
+//     genres: ['adventure', 'history'],
+//   },
+//   {
+//     title: 'Beside Still Waters',
+//     author: 'Robert Sheckley',
+//     genres: ['fiction', 'mysticism'],
+//   },
+//   {
+//     title: 'Redder Than Blood',
+//     author: 'Tanith Lee',
+//     genres: ['horror', 'mysticism', 'adventure'],
+//   },
+// ];
+
+// //складання масиву усіх жанрів
+// const allGenres = books.flatMap(book => book.genres);
+// //складання масиву унікальних жанрів
+// const uniqueGenres = allGenres.filter((genres, index, array) => array.indexOf(genres) === index);
+
+// console.log(allGenres);
+// console.log(uniqueGenres);
+
+// --------------------------------------------------------------
