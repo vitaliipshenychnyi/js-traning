@@ -446,3 +446,74 @@
 // console.log(getTotalBalanceByGender(users, 'female'));
 
 // --------------------------------------------------------------
+
+// ===== Приклад з невірним рахуванням =====
+
+// function add(num1, num2) {
+//   //створюємо змінні для підрахунку довжини чисел
+//   const firstNumber = String(num1).split('').length;
+//   const secondNumber = String(num2).split('').length;
+
+//   // створюємо змінну для невірного підрахунку
+//   let errorNumber = '';
+
+//   // за умовою різних довжин, рахуємо вірно
+//   if (firstNumber !== secondNumber) {
+//     return num1 + num2;
+//   }
+
+//   // за умовою однакових довжин запускаємо цикл
+//   else {
+//     for (let i = 0; i < firstNumber; i += 1) {
+//       // String(num1).split('') - переводимо число до рядка та розбиваємо на символи
+//       // [i] - на кожній ітерації беремо символ та переводимо до числа
+//       //  + - додаємо числа (символи) першого (num1) та другого (num2) числа
+//       // робимо конкатинацію та додаємо результат да змінної невірного підрахунку
+//       errorNumber += `${Number(String(num1).split('')[i]) + Number(String(num2).split('')[i])}`;
+//     }
+//     return Number(errorNumber);
+//   }
+// }
+
+// console.log(add(26, 39));
+// console.log(add(1202, 81));
+
+// --------------------------------------------------------------
+
+// ===== Приклад з невірним рахуванням =====
+
+// function add(num1, num2) {
+//   //створюємо змінні для підрахунку довжини чисел
+//   const firstNumber = String(num1).length;
+//   const secondNumber = String(num2).length;
+
+//   // створюємо масиви з першого та другого числа та обертаємо їх
+//   let arr1 = String(num1).split('').reverse();
+//   let arr2 = String(num2).split('').reverse();
+
+//   // створюємо масив для збереження невірного підрахунку
+//   let arrError = [];
+
+//   // за умовою, якщо перше число більше другого
+//   if (firstNumber > secondNumber) {
+//     for (let i = 1; i <= secondNumber; i += 1) {
+//       arrError.push(Number(String(num1)[firstNumber - i]) + Number(String(num2)[secondNumber - i]));
+//     }
+
+//     return arrError.concat(arr1.slice(secondNumber)).reverse().join('');
+//   }
+
+//   // за умовою, якщо друге число більше або дорівнює першому
+//   else {
+//     for (let i = 1; i <= firstNumber; i += 1) {
+//       arrError.push(Number(String(num1)[firstNumber - i]) + Number(String(num2)[secondNumber - i]));
+//     }
+
+//     return arrError.concat(arr2.slice(firstNumber)).reverse().join('');
+//   }
+// }
+
+// console.log(add(199, 5));
+// console.log(add(1205, 86));
+
+// --------------------------------------------------------------
