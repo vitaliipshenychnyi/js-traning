@@ -483,34 +483,51 @@
 // ===== Приклад з невірним рахуванням =====
 
 // function add(num1, num2) {
-//   //створюємо змінні для підрахунку довжини чисел
 //   const firstNumber = String(num1).length;
 //   const secondNumber = String(num2).length;
 
-//   // створюємо масиви з першого та другого числа та обертаємо їх
 //   let arr1 = String(num1).split('').reverse();
 //   let arr2 = String(num2).split('').reverse();
-
-//   // створюємо масив для збереження невірного підрахунку
 //   let arrError = [];
 
-//   // за умовою, якщо перше число більше другого
 //   if (firstNumber > secondNumber) {
 //     for (let i = 1; i <= secondNumber; i += 1) {
 //       arrError.push(Number(String(num1)[firstNumber - i]) + Number(String(num2)[secondNumber - i]));
 //     }
-
 //     return arrError.concat(arr1.slice(secondNumber)).reverse().join('');
-//   }
-
-//   // за умовою, якщо друге число більше або дорівнює першому
-//   else {
+//   } else {
 //     for (let i = 1; i <= firstNumber; i += 1) {
 //       arrError.push(Number(String(num1)[firstNumber - i]) + Number(String(num2)[secondNumber - i]));
 //     }
-
 //     return arrError.concat(arr2.slice(firstNumber)).reverse().join('');
 //   }
+// }
+
+// console.log(add(199, 5));
+// console.log(add(1205, 86));
+
+// --------------------------------------------------------------
+
+// ===== попередня задача =====
+// function add(num1, num2) {
+//   let result = '';
+//   let val1 = String(num1);
+//   let val2 = String(num2);
+
+//   if (val1.length > val2.length) {
+//     val2 = val2.padStart(val1.length, '0');
+//   } else {
+//     val1 = val1.padStart(val2.length, '0');
+//   }
+
+//   const arr1 = val1.split('');
+//   const arr2 = val2.split('');
+
+//   for (let i = 0; i < arr1.length; i += 1) {
+//     const sum = Number(arr1[i]) + Number(arr2[i]);
+//     result += sum;
+//   }
+//   return Number(result);
 // }
 
 // console.log(add(199, 5));
