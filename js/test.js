@@ -542,29 +542,63 @@
  * та повертається це k
  * Якщо таке k знайти не можливо, то повертається -1
  */
-// function fun(n, p) {
-//   const arr = String(n).split('');
+function digPow(n, p) {
+  const sumPow = String(n)
+    .split('')
+    .reduce((acc, number) => {
+      acc = acc + Math.pow(number, p);
+      p += 1;
+      return acc;
+    }, 0);
 
-//   const sumPow = arr.reduce((acc, number) => {
-//     acc = acc + Math.pow(number, p);
-//     p += 1;
-//     return acc;
-//   }, 0);
+  if (sumPow >= n) {
+    for (let i = n; i <= sumPow; i += n) {
+      if (sumPow % n === 0) {
+        return sumPow / n;
+      }
+    }
+  }
+  return -1;
+}
 
-//   if (sumPow >= n) {
-//     for (let i = n; i <= sumPow; i += n) {
-//       if (sumPow % n === 0) {
-//         return sumPow / n;
-//       }
-//     }
-//   }
-//   return -1;
+// function digPow(n, p) {
+//   var x = String(n)
+//     .split('')
+//     .reduce((s, d, i) => s + Math.pow(d, p + i), 0);
+//   return x % n ? -1 : x / n;
 // }
 
-// console.log(fun(89, 1));
-// console.log(fun(92, 1));
-// console.log(fun(695, 2));
-// console.log(fun(46288, 3));
+//************
+
+// function digPow(n, p) {
+//   var ans =
+//     ('' + n)
+//       .split('')
+//       .map(function (d, i) {
+//         return Math.pow(+d, i + p);
+//       })
+//       .reduce(function (s, v) {
+//         return s + v;
+//       }) / n;
+//   return ans % 1 ? -1 : ans;
+// }
+
+//*************
+
+// function digPow(n, p) {
+//   var ans =
+//     n
+//       .toString()
+//       .split('')
+//       .map((v, i) => Math.pow(parseInt(v), i + p))
+//       .reduce((a, b) => a + b) / n;
+//   return ans % 1 == 0 ? ans : -1;
+// }
+
+console.log(digPow(89, 1));
+console.log(digPow(92, 1));
+console.log(digPow(695, 2));
+console.log(digPow(46288, 3));
 
 // --------------------------------------------------------------
 
