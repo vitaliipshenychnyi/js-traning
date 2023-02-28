@@ -508,7 +508,33 @@
 
 // --------------------------------------------------------------
 
-<<<<<<< HEAD
+// ===== попередня задача =====
+// function add(num1, num2) {
+//   let result = '';
+//   let val1 = String(num1);
+//   let val2 = String(num2);
+
+//   if (val1.length > val2.length) {
+//     val2 = val2.padStart(val1.length, '0');
+//   } else {
+//     val1 = val1.padStart(val2.length, '0');
+//   }
+
+//   const arr1 = val1.split('');
+//   const arr2 = val2.split('');
+
+//   for (let i = 0; i < arr1.length; i += 1) {
+//     const sum = Number(arr1[i]) + Number(arr2[i]);
+//     result += sum;
+//   }
+//   return Number(result);
+// }
+
+// console.log(add(199, 5));
+// console.log(add(1205, 86));
+
+// --------------------------------------------------------------
+
 // ===== Веселі властивості чиел =====
 /**
  * Число n розкладається на масив цифр (89 => [8, 9])
@@ -539,31 +565,6 @@
 // console.log(fun(92, 1));
 // console.log(fun(695, 2));
 // console.log(fun(46288, 3));
-=======
-// ===== попередня задача =====
-// function add(num1, num2) {
-//   let result = '';
-//   let val1 = String(num1);
-//   let val2 = String(num2);
-
-//   if (val1.length > val2.length) {
-//     val2 = val2.padStart(val1.length, '0');
-//   } else {
-//     val1 = val1.padStart(val2.length, '0');
-//   }
-
-//   const arr1 = val1.split('');
-//   const arr2 = val2.split('');
-
-//   for (let i = 0; i < arr1.length; i += 1) {
-//     const sum = Number(arr1[i]) + Number(arr2[i]);
-//     result += sum;
-//   }
-//   return Number(result);
-// }
-
-// console.log(add(199, 5));
-// console.log(add(1205, 86));
 
 // --------------------------------------------------------------
 
@@ -577,7 +578,7 @@
 /* read() запитує два значення та зберігає їх як властивості об’єкта з іменами a та b відповідно.
  * sum() повертає суму збережених значень.
  * mul() множить збережені значення і повертає результат.
-*/
+ */
 
 // let calculator = {
 //   sum() {
@@ -595,6 +596,5 @@
 // calculator.read();
 // alert(calculator.sum());
 // alert(calculator.mul());
->>>>>>> aef8787f64af3d13538fe1ef70d046d1e5175a72
 
 // --------------------------------------------------------------
