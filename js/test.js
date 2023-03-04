@@ -602,3 +602,66 @@
 // alert(calculator.mul());
 
 // --------------------------------------------------------------
+
+// ===== Підтвердження закінчення =====
+/**
+ * Перевірте, чи рядок str закінчується заданим цільовим рядком target.
+ * Без використання методу .endsWith()
+ */
+
+// function confirmEnding(str, target) {
+//   if (str.split(' ').length === 1) {
+//     return str.slice(str.length - target.length) === target ? true : false;
+//   }
+//   return (
+//     str.split(' ').some(word => word.slice(word.length - target.length) === target) &&
+//     str.indexOf(target) === str.length - target.length
+//   );
+
+// інше рішення
+// return str.slice(-target.length) === target ? true : false;
+// }
+
+// console.log(confirmEnding('Congratulation', 'on')); //true
+// console.log(confirmEnding('Open sesame', 'same')); //true
+// console.log(confirmEnding('Bastian', 'n')); //true
+// console.log(
+//   confirmEnding(
+//     'Walking on water and developing software from a specification are easy if both are frozen',
+//     'specification',
+//   ),
+// ); //false
+
+// --------------------------------------------------------------
+
+// ===== Скорочення рядка =====
+/**
+ * Скоротіть рядок (перший аргумент), якщо він довший за максимальну
+ * довжину рядка (другий аргумент). Поверніть скорочений рядок із закінченням ....
+ */
+// function truncateString(str, num) {
+//   const arrStr = str.split('');
+
+//   if (arrStr.length > num) {
+//     arrStr.splice(num);
+//     return arrStr.join('') + '...';
+//   }
+//   return str;
+// }
+
+// console.log(truncateString('A-tisket a-tasket A green and yellow basket', 8));
+// console.log(truncateString('A-', 1));
+// console.log(
+//   truncateString(
+//     'A-tisket a-tasket A green and yellow basket',
+//     'A-tisket a-tasket A green and yellow basket'.length,
+//   ),
+// );
+// console.log(
+//   truncateString(
+//     'A-tisket a-tasket A green and yellow basket',
+//     'A-tisket a-tasket A green and yellow basket'.length + 2,
+//   ),
+// );
+
+// --------------------------------------------------------------
