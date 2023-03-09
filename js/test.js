@@ -665,3 +665,106 @@
 // );
 
 // --------------------------------------------------------------
+
+// ===== Слова з великої літери =====
+// function titleCase(str) {
+//   return str
+//     .toLowerCase()
+//     .split(' ')
+//     .map(el => el.replace(el[0], el[0].toUpperCase()))
+//     .join(' ');
+// }
+
+// console.log(titleCase("I'm a little tea pot"));
+// console.log(titleCase('sHoRt AnD sToUt'));
+
+// --------------------------------------------------------------
+
+// ===== Мутації =====
+/**
+ * Поверніть true, якщо рядок у першому елементі масиву містить
+ * усі літери рядка у другому елементі масиву.
+ */
+
+// function mutation(arr) {
+//   return arr[1]
+//     .toLowerCase()
+//     .split('')
+//     .every(el => arr[0].toLowerCase().includes(el));
+// }
+
+// console.log(mutation(['hello', 'hey'])); //false
+// console.log(mutation(['Mary', 'Army'])); //true
+// console.log(mutation(['Alien', 'line'])); //true
+
+// --------------------------------------------------------------
+
+// ===== Сума всіх чисел в діапазоні =====
+
+// function sumAll(arr) {
+//   const sortArr = arr.sort((a, b) => a - b);
+//   for (let i = sortArr[0] + 1; i < sortArr[1]; i += 1) {
+//     arr.push(i);
+//   }
+//   return arr.reduce((sum, num) => (sum += num), 0);
+// }
+
+// console.log(sumAll([1, 4])); //10
+// console.log(sumAll([10, 5])); //45
+
+// --------------------------------------------------------------
+
+// ===== Різниця між двома масивами =====
+
+// function diffArray(arr1, arr2) {
+//   const newArr = [];
+//   for (const el of arr1) {
+//     if (!arr2.includes(el)) {
+//       newArr.push(el);
+//     }
+//   }
+
+//   for (const el of arr2) {
+//     if (!arr1.includes(el)) {
+//       newArr.push(el);
+//     }
+//   }
+
+//   return newArr;
+// }
+
+// // [4]
+// console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+// // ['pink wool']
+// console.log(
+//   diffArray(
+//     ['diorite', 'andesite', 'grass', 'dirt', 'pink wool', 'dead shrub'],
+//     ['diorite', 'andesite', 'grass', 'dirt', 'dead shrub'],
+//   ),
+// );
+// // ['piglet', 4]
+// console.log(diffArray([1, 'calf', 3, 'piglet'], [1, 'calf', 3, 4]));
+
+// --------------------------------------------------------------
+
+// ===== Пошук та знищення =====
+
+// Потрібно використати об'єкт arguments
+
+function destroyer(arr) {
+  const args = [];
+  const result = [];
+  for (let i = 1; i < arguments.length; i += 1) {
+    args.push(arguments[i]);
+  }
+  console.log(args);
+  for (const el of args) {
+    if()
+  }
+
+  return result;
+}
+
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3)); //[1, 1]
+// console.log(destroyer([3, 5, 1, 2, 2], 2, 3, 5)); //[1]
+// console.log(destroyer(['tree', 'hamburger', 53], 'tree', 53)); //['hamburger']
