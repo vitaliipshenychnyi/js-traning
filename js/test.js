@@ -751,20 +751,95 @@
 
 // Потрібно використати об'єкт arguments
 
-function destroyer(arr) {
-  const args = [];
-  const result = [];
-  for (let i = 1; i < arguments.length; i += 1) {
-    args.push(arguments[i]);
-  }
-  console.log(args);
-  for (const el of args) {
-    if()
-  }
+// function destroyer(arr) {
+//   const restArgs = Array.from(arguments);
+//   restArgs.shift();
 
-  return result;
-}
+//   let result = [...arr];
+//   for (const arg of restArgs) {
+//     result = result.filter(element => element !== arg);
+//   }
+//   return result;
+// }
 
-console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3)); //[1, 1]
+// console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3)); //[1, 1]
 // console.log(destroyer([3, 5, 1, 2, 2], 2, 3, 5)); //[1]
 // console.log(destroyer(['tree', 'hamburger', 53], 'tree', 53)); //['hamburger']
+
+// --------------------------------------------------------------
+
+// ===== Де ж ти, Ромео? =====
+/**
+ * Напишіть функцію, яка проглядає масив об'єктів (перший аргумент) і
+ * повертає масив усіх об'єктів, які мають однакові пари імен та
+ * значень (другий аргумент). Кожна пара імен та значень вихідного об'єкта
+ * повинна бути в об'єкті з колекції, якщо він необхідний у повернутому масиві.
+ */
+
+// function whatIsInAName(collection, source) {
+//   let result = [...collection];
+//   for (const sourceKey of Object.keys(source)) {
+//     for (const element of result) {
+//       result = result.filter(
+//         element => sourceKey in element && source[sourceKey] === element[sourceKey],
+//       );
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(
+//   whatIsInAName(
+//     [
+//       { first: 'Romeo', last: 'Montague' },
+//       { first: 'Mercutio', last: null },
+//       { first: 'Tybalt', last: 'Capulet' },
+//     ],
+//     { last: 'Capulet' },
+//   ),
+// ); //[{ first: "Tybalt", last: "Capulet" }]
+
+// console.log(
+//   whatIsInAName([{ apple: 1, bat: 2 }, { apple: 1 }, { apple: 1, bat: 2, cookie: 2 }, { bat: 2 }], {
+//     apple: 1,
+//     bat: 2,
+//   }),
+// ); //[{ "apple": 1, "bat": 2 }, { "apple": 1, "bat": 2, "cookie":2 }]
+
+// --------------------------------------------------------------
+
+// ===== Шашличний регістр =====
+
+/**
+ * Всі-слова-в-нижньому-регістрі-та-розділені-рискою
+ */
+
+// function spinalCase(str) {
+//   const arrStr = str.replaceAll(' ', '-').replaceAll('_', '-').split('-');
+
+//   let arrLowerFirstLatter = [];
+//   for (const el of arrStr) {
+//     arrLowerFirstLatter.push(el.slice(0, 1).toLowerCase() + el.slice(1));
+//   }
+
+//   const newStr = arrLowerFirstLatter.join('-');
+
+//   let result = '';
+//   for (let i = 0; i < newStr.length; i += 1) {
+//     if (newStr[i].match(/[A-Z]/)) {
+//       result += newStr[i].replace(newStr[i], '-' + newStr[i]);
+//     } else {
+//       result += newStr[i];
+//     }
+//   }
+//   return result.toLowerCase();
+// }
+
+// console.log(spinalCase('thisIsSpinalTap'));
+// console.log(spinalCase('This Is Spinal Tap'));
+// console.log(spinalCase('The_Andy_Griffith_Show'));
+// console.log(spinalCase('AllThe-small Things'));
+// console.log(spinalCase('Teletubbies say Eh-oh'));
+
+// --------------------------------------------------------------
+
