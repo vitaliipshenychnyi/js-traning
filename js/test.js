@@ -817,10 +817,10 @@
 // function spinalCase(str) {
 //   const arrStr = str.replaceAll(' ', '-').replaceAll('_', '-').split('-');
 
-//   let arrLowerFirstLatter = [];
-//   for (const el of arrStr) {
-//     arrLowerFirstLatter.push(el.slice(0, 1).toLowerCase() + el.slice(1));
-//   }
+//   const arrLowerFirstLatter = arrStr.reduce((acc, el) => {
+//     acc.push(el.slice(0, 1).toLowerCase() + el.slice(1));
+//     return acc;
+//   }, []);
 
 //   const newStr = arrLowerFirstLatter.join('-');
 
@@ -843,3 +843,179 @@
 
 // --------------------------------------------------------------
 
+//===== Порасяча латина =====
+
+/**
+ * Якщо слово починається з приголосного звуку, то перший приголосний
+ * або сполучення приголосних переміщуються в кінець слова і додається ay.
+ *
+ * Якщо слово починається з голосного звуку, то вкінці просто додається way.
+ */
+
+// function translatePigLatin(str) {
+//   if (str[0].match(/[a,e,y,u,i,o]/)) {
+//     return str + 'way';
+//   } else if (str[0] === 'r') {
+//     return str + 'ay';
+//   } else {
+//     for (let i = 0; i < str.length; i += 1) {
+//       if (str[i].match(/[a,e,y,u,i,o]/)) {
+//         return str.slice(i) + str.slice(0, i) + 'ay';
+//       }
+//     }
+//   }
+// }
+
+// console.log(translatePigLatin('california')); //aliforniacay
+// console.log(translatePigLatin('algorithm')); //algorithmway
+// console.log(translatePigLatin('eight')); //eightway
+// console.log(translatePigLatin('schwartz')); //artzschway
+// // !!! помилка в тесті
+// console.log(translatePigLatin('rhythm'));
+
+// --------------------------------------------------------------
+
+// ===== Пошук та заміна =====
+
+/**
+ * Виконати пошук та заміну на реченні, використовуючи надані
+ * аргументи, та повернути нове речення.
+ * Регістр першої літери має значення
+ */
+
+// function myReplace(str, before, after) {
+//   return before[0].match(/[a-z]/)
+//     ? str.replace(before, after.replace(after[0], after[0].toLowerCase()))
+//     : str.replace(before, after.replace(after[0], after[0].toUpperCase()));
+// }
+
+// // Let us go to the mall
+// console.log(myReplace('Let us go to the store', 'store', 'mall'));
+// // He is Sitting on the couch
+// console.log(myReplace('He is Sleeping on the couch', 'Sleeping', 'sitting'));
+// // I think we should look down there
+// console.log(myReplace('I think we should look up there', 'up', 'Down'));
+
+// --------------------------------------------------------------
+
+// ===== Формування пар ДНК =====
+
+/**
+ * Є пари ланцюжків ДНК - AT та TG.
+ * Слід написати фуекцію для пошуку відсутніх базових пар для наданого ланцюжка
+ * та формування з найдених пар масивів.
+ * Всі пари ланцюжків мають зберігатися в загальному масиві
+ */
+
+// function pairElement(str) {
+//   return str.split('').reduce((acc, el) => {
+//     if (el === 'G') {
+//       acc.push([el, 'C']);
+//     }
+//     if (el === 'C') {
+//       acc.push([el, 'G']);
+//     }
+//     if (el === 'A') {
+//       acc.push([el, 'T']);
+//     }
+//     if (el === 'T') {
+//       acc.push([el, 'A']);
+//     }
+//     return acc;
+//   }, []);
+// }
+
+// console.log(pairElement('GCG')); //[["G", "C"], ["C","G"], ["G", "C"]]
+// console.log(pairElement('ATCGA')); //[["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]]
+// console.log(pairElement('TTGAG')); //[["T","A"],["T","A"],["G","C"],["A","T"],["G","C"]]
+// console.log(pairElement('CTCTA')); //[["C","G"],["T","A"],["C","G"],["T","A"],["A","T"]]
+
+// --------------------------------------------------------------
+
+// ===== Пропущені літери =====
+
+/**
+ * Знайти пропущену літеру в переданому діапазоні літер та повернути її.
+ * Якщо у діапазоні наявні всі літери, повернути undefined.
+ */
+
+// function fearNotLetter(str) {
+//   for (let i = 0; i < str.length - 1; i += 1) {
+//     if (str.charCodeAt(i + 1) - str.charCodeAt(i) !== 1) {
+//       return String.fromCharCode(str.charCodeAt(i) + 1);
+//     }
+//   }
+//   return undefined;
+// }
+
+// console.log(fearNotLetter('abce')); // d
+// console.log(fearNotLetter('abcdefghjklmno')); // i
+// console.log(fearNotLetter('abcdefghijklmnopqrstuvwxyz')); // undefined
+
+// --------------------------------------------------------------
+
+// ===== Сортування масиву =====
+
+/**
+ * Напишіть функцію, яка приймає два або більше масивів та повертає новий масив унікальних значень
+ * у порядку наданих початкових масивів.
+ */
+
+// function uniteUnique(arr, ...restArr) {
+//   let result = arr.filter((el, idx, arr) => arr.indexOf(el) === idx);
+
+//   for (const rest of restArr) {
+//     for (const el of rest) {
+//       if (!result.includes(el)) {
+//         result.push(el);
+//       }
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])); //[1, 3, 2, 5, 4]
+// console.log(uniteUnique([1, 2, 3], [5, 2, 1])); //[1, 2, 3, 5]
+// console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])); //[1, 2, 3, 5, 4, 6, 7, 8]
+// console.log(uniteUnique([1, 3, 2, 3], [5, 2, 1, 4], [2, 1])); //[1, 3, 2, 5, 4]
+
+// --------------------------------------------------------------
+
+// ===== Перетворення символів для HTML =====
+
+/**
+ * Перетворіть символи &, <, >, " (подвійні лапки) та ' (апостроф)
+ * у відповідне позначення символів для HTML.
+ */
+
+// function convertHTML(str) {
+//   let res = '';
+//   for (let i = 0; i < str.length; i += 1) {
+//     if (str[i] === '&') {
+//       res += str.slice(i, i+1).replaceAll(str[i], '&amp;');
+//     } else if (str[i] === '<') {
+//       res += str.slice(i, i+1).replaceAll(str[i], '&lt;');
+//       continue;
+//     } else if (str[i] === '>') {
+//       res += str.slice(i, i+1).replaceAll(str[i], '&gt;');
+//       continue;
+//     } else if (str[i] === '"') {
+//       res += str.slice(i, i+1).replaceAll(str[i], '&quot;');
+//     } else if (str[i] === "'") {
+//       res += str.slice(i, i+1).replaceAll(str[i], '&apos;');
+//     } else {
+//       res += str[i];
+//     }
+//   }
+
+//   return res;
+// }
+
+// console.log(convertHTML('Dolce & Gabbana')); //Dolce &amp; Gabbana
+// console.log(convertHTML('Hamburgers < Pizza < Tacos')); //Hamburgers &lt; Pizza &lt; Tacos
+// console.log(convertHTML('Stuff in "quotation marks"')); //Stuff in &quot;quotation marks&quot;
+// console.log(convertHTML('<>')); //&lt;&gt;
+// console.log('abc'); //abc
+// console.log(convertHTML("Schindler's List")); //Schindler&apos;s List
+
+// --------------------------------------------------------------
