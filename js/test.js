@@ -1018,4 +1018,26 @@
 // console.log('abc'); //abc
 // console.log(convertHTML("Schindler's List")); //Schindler&apos;s List
 
-// --------------------------------------------------------------z
+// --------------------------------------------------------------
+
+// ===== Отримати із строки нову строку в нижньому регістру через -
+
+// function urlSlug(title) {
+//   return title[0] !== ' '
+//     ? title
+//         .split(/[^A-Za-z]+/)
+//         .join('-')
+//         .toLowerCase()
+//     : title
+//         .slice(1)
+//         .split(/[^A-Za-z]+/)
+//         .join('-')
+//         .toLowerCase();
+// }
+
+// console.log(urlSlug('Winter Is Coming'));
+// console.log(urlSlug('Winter.Is.Coming'));
+// console.log(urlSlug('Winter,Is,Coming'));
+// console.log(urlSlug(' Winter Is  Coming'));
+
+// --------------------------------------------------------------
