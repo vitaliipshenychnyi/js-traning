@@ -1041,3 +1041,194 @@
 // console.log(urlSlug(' Winter Is  Coming'));
 
 // --------------------------------------------------------------
+
+// ===== Сума всіх непарних чисел Фібоначчі =====
+
+// function sumFibs(num) {
+//   const arr = [0];
+//   let sum = 1;
+//   let i = 0;
+//   while (sum <= num) {
+//     arr.push(sum);
+//     i += 1;
+//     sum = arr[i - 1] + arr[i];
+//   }
+//   return arr.filter(el => el % 2).reduce((acc, el) => (acc += el), 0);
+// }
+
+// console.log(sumFibs(4)); //5
+// console.log(sumFibs(1000)); //1785
+// console.log(sumFibs(4000000)); //4613732
+
+// --------------------------------------------------------------
+
+// ===== Сума всіх простих чисел =====
+
+// function sumPrimes(num) {
+//   const arrSimpleNumbers = [2];
+//   for (let i = 3; i <= num; i += 1) {
+//     if (arrSimpleNumbers.every(el => i % el)) {
+//       arrSimpleNumbers.push(i);
+//     }
+//   }
+
+//   return arrSimpleNumbers.reduce((acc,el)=> acc+=el,0);
+// }
+
+// console.log(sumPrimes(10)); //17
+// console.log(sumPrimes(977)); //73156
+
+// --------------------------------------------------------------
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!===== Найменше спільне кратне =====
+
+// function smallestCommons(arr) {
+//   arr.sort((a, b) => a - b);
+//   const arrAllNumbers = [arr[0]];
+//   for (let i = arr[0] + 1; i <= arr[1]; i += 1) {
+//     arrAllNumbers.push(i);
+//   }
+
+//   return arrAllNumbers;
+// }
+
+// console.log(smallestCommons([1, 5])); //60
+// console.log(smallestCommons([1, 13])); //360360
+// console.log(smallestCommons([23, 18])); //6056820
+
+// --------------------------------------------------------------
+
+// ===== Облиште =====
+/**
+ * Переберіть масив arr та вилучіть кожен елемент, починаючи з першого елемента (індекс 0),
+ * допоки функція func не поверне true, коли ітерований елемент пройде крізь.
+ * Потім поверніть решту масиву, якщо умову виконано. В іншому випадку arr має повертатися
+ * у вигляді порожнього масиву.
+ */
+
+// function dropElements(arr, func) {
+//   return !!~arr.findIndex(func) ? arr.slice(arr.findIndex(func)) : [];
+// }
+
+// console.log(
+//   dropElements([1, 2, 3, 4], function (n) {
+//     return n >= 3;
+//   }),
+// ); //[3,4]
+// console.log(
+//   dropElements([0, 1, 0, 1], function (n) {
+//     return n === 1;
+//   }),
+// ); //[1,0,1]
+// console.log(
+//   dropElements([1, 2, 3, 4], function (n) {
+//     return n > 5;
+//   }),
+// ); //[]
+// console.log(
+//   dropElements([1, 2, 3, 9, 2], function (n) {
+//     return n > 2;
+//   }),
+// ); //[3,9,2]
+
+// --------------------------------------------------------------
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!===== Нездоланна сила =====
+/**
+ * Вирівняйте вкладений масив. Ви повинні врахувати різні рівні вкладення.
+ */
+
+// function steamrollArray(arr) {
+//   const result = [];
+//   let rest = [];
+//   for (const el of arr) {
+//     if (Array.isArray(el)) {
+//       rest = [...steamrollArray(el)];
+//     } else {
+//       result.push(el);
+//     }
+//   }
+//   return result.concat(rest);
+// }
+
+// console.log(steamrollArray([[['a']], [['b']]])); //["a", "b"]
+// console.log(steamrollArray([1, [2], [3, [[4]]]])); //[1, 2, 3, 4]
+// console.log(steamrollArray([1, [], [3, [[4]]]])); //[1, 3, 4]
+// console.log(steamrollArray([1, {}, [3, [[4]]]])); //[1, {}, 3, 4]
+
+// --------------------------------------------------------------
+
+// ===== Бінарні агенти =====
+/**
+ * Поверніть переданий бінарний рядок, перекладений англійською мовою.
+ * Бінарний рядок буде розділений пробілом.
+ */
+
+// function binaryAgent(str) {
+//   return str
+//     .split(' ')
+//     .map(el => String.fromCharCode('0b' + el))
+//     .join('');
+// }
+
+// console.log(
+//   binaryAgent(
+//     '01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111',
+//   ),
+// );
+
+// --------------------------------------------------------------
+
+// ===== Усе вірно =====
+/**
+ * Перевірте, чи предикат (другий аргумент) є істинним для
+ * усіх елементів колекції (перший аргумент).
+ */
+
+// function truthCheck(collection, pre) {
+//   return collection.every(el => el[pre]);
+// }
+
+// console.log(
+//   truthCheck(
+//     [
+//       { name: 'Quincy', role: 'Founder', isBot: false },
+//       { name: 'Naomi', role: '', isBot: false },
+//       { name: 'Camperbot', role: 'Bot', isBot: true },
+//     ],
+//     'isBot',
+//   ),
+// ); //false
+
+// console.log(
+//   truthCheck(
+//     [
+//       { name: 'Pikachu', number: 25, caught: 3 },
+//       { name: 'Togepi', number: 175, caught: 1 },
+//     ],
+//     'number',
+//   ),
+// ); //true
+
+// --------------------------------------------------------------
+ // ===== Додаткові аргументи =====
+
+ /**
+  * Створіть функцію, яка додає два аргументи. Якщо вказано лише один аргумент,
+  * то поверніть функцію, яка очікує один аргумент і повертає суму.
+  */
+
+ function addTogether() {
+  return false;
+}
+
+console.log(addTogether(2, 3)); //5
+console.log(addTogether(5)(7)); //12
+console.log(addTogether("https://www.youtube.com/watch?v=dQw4w9WgXcQ")) //undefined
+console.log(addTogether(2, "3")); //undefined
+console.log(addTogether(2)([3])); //undefined
+// --------------------------------------------------------------
+
+// --------------------------------------------------------------
+
+// --------------------------------------------------------------
