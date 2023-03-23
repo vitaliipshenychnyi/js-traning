@@ -1133,22 +1133,21 @@
 
 // --------------------------------------------------------------
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!===== Нездоланна сила =====
+// ===== Нездоланна сила =====
 /**
  * Вирівняйте вкладений масив. Ви повинні врахувати різні рівні вкладення.
  */
 
 // function steamrollArray(arr) {
-//   const result = [];
-//   let rest = [];
-//   for (const el of arr) {
-//     if (Array.isArray(el)) {
-//       rest = [...steamrollArray(el)];
+//   let result = [];
+//   for (const element of arr) {
+//     if (Array.isArray(element)) {
+//       result = result.concat(steamrollArray(element));
 //     } else {
-//       result.push(el);
+//       result.push(element);
 //     }
 //   }
-//   return result.concat(rest);
+//   return result;
 // }
 
 // console.log(steamrollArray([[['a']], [['b']]])); //["a", "b"]
@@ -1211,24 +1210,103 @@
 // ); //true
 
 // --------------------------------------------------------------
- // ===== Додаткові аргументи =====
 
- /**
-  * Створіть функцію, яка додає два аргументи. Якщо вказано лише один аргумент,
-  * то поверніть функцію, яка очікує один аргумент і повертає суму.
-  */
+// !!!!!!!!!!!!!!!!!!!!!!!!!!===== Додаткові аргументи =====
+/**
+ * Створіть функцію, яка додає два аргументи. Якщо вказано лише один аргумент,
+ * то поверніть функцію, яка очікує один аргумент і повертає суму.
+ */
 
- function addTogether() {
-  return false;
-}
+// function addTogether(a, b) {
+//   return typeof a === 'number' && typeof b === 'number' ? a + b : undefined;
+// }
 
-console.log(addTogether(2, 3)); //5
-console.log(addTogether(5)(7)); //12
-console.log(addTogether("https://www.youtube.com/watch?v=dQw4w9WgXcQ")) //undefined
-console.log(addTogether(2, "3")); //undefined
-console.log(addTogether(2)([3])); //undefined
+// console.log(addTogether(2, 3)); //5
+// console.log(addTogether(5)(7)); //12
+// console.log(addTogether('https://www.youtube.com/watch?v=dQw4w9WgXcQ')); //undefined
+// console.log(addTogether(2, '3')); //undefined
+// console.log(addTogether(2)([3])); //undefined
+
 // --------------------------------------------------------------
 
+// ===== Створіть людину =====
+/**
+ * Заповніть конструктор об’єкта, використовуючи наведені нижче методи:
+ * getFirstName()
+ * getLastName()
+ * getFullName()
+ * setFirstName(first)
+ * setLastName(last)
+ * setFullName(firstAndLast)
+ */
+
+// const Person = function (firstAndLast) {
+//   let firstName = firstAndLast.split(' ')[0];
+//   let lastName = firstAndLast.split(' ')[1];
+
+//   this.setFirstName = function (first) {
+//     firstName = first;
+//   };
+//   this.setLastName = function (last) {
+//     lastName = last;
+//   };
+//   this.setFullName = function (firstAndLast) {
+//     firstName = firstAndLast.split(' ')[0];
+//     lastName = firstAndLast.split(' ')[1];
+//     return `${firstName} ${lastName}`;
+//   };
+//   this.getFirstName = function () {
+//     return firstName;
+//   };
+//   this.getLastName = function () {
+//     return lastName;
+//   };
+//   this.getFullName = function () {
+//     return `${firstName} ${lastName}`;
+//   };
+//   return firstAndLast;
+// };
+
+// const bob = new Person('Bob Ross');
+
+// console.log(bob.getFirstName());
+// console.log(bob.getLastName());
+// console.log(bob.getFullName());
+// console.log(bob.setFirstName('Haskell'));
+// console.log(bob.getFullName());
+// console.log(bob.setLastName('Curry'));
+// console.log(bob.getFullName());
+// console.log(bob.setFullName('New People'));
+
 // --------------------------------------------------------------
+
+// ===== Карта орбіт =====
+
+// function orbitalPeriod(arr) {
+//   const GM = 398600.4418;
+//   const earthRadius = 6367.4447;
+//   const period = [];
+//   for (const planet of arr) {
+//     planet.orbitalPeriod = Math.round(
+//       2 * Math.PI * Math.pow(Math.pow(planet.avgAlt + earthRadius, 3) / GM, 0.5),
+//     );
+//     period.push(planet);
+//     delete planet.avgAlt;
+//   }
+//   return period;
+// }
+
+// //[{name: "sputnik", orbitalPeriod: 86400}]
+// console.log(orbitalPeriod([{ name: 'sputnik', avgAlt: 35873.5553 }]));
+
+// //[{name : "iss", orbitalPeriod: 5557}, {name: "hubble", orbitalPeriod: 5734},
+// // { name: "moon", orbitalPeriod: 2377399 }]
+// console.log(
+//   orbitalPeriod([
+//     { name: 'iss', avgAlt: 413.6 },
+//     { name: 'hubble', avgAlt: 556.7 },
+//     { name: 'moon', avgAlt: 378632.553 },
+//   ]),
+// );
 
 // --------------------------------------------------------------
