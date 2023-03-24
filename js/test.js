@@ -1211,21 +1211,33 @@
 
 // --------------------------------------------------------------
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!===== Додаткові аргументи =====
+// ===== Додаткові аргументи =====
 /**
  * Створіть функцію, яка додає два аргументи. Якщо вказано лише один аргумент,
  * то поверніть функцію, яка очікує один аргумент і повертає суму.
  */
 
-// function addTogether(a, b) {
-//   return typeof a === 'number' && typeof b === 'number' ? a + b : undefined;
+// function addTogether(...arg1) {
+//   if (arg1.length === 2 && typeof arg1[0] === 'number' && typeof arg1[1] === 'number') {
+//     return arg1[0] + arg1[1];
+//   }
+//   if (arg1.length === 1) {
+//     if (typeof arg1[0] === 'number') {
+//       return function (...arg2) {
+//         return typeof arg2[0] === 'number' ? arg1[0] + arg2[0] : undefined;
+//       };
+//     }
+//     return undefined;
+//   }
+//   return undefined;
 // }
 
 // console.log(addTogether(2, 3)); //5
 // console.log(addTogether(5)(7)); //12
 // console.log(addTogether('https://www.youtube.com/watch?v=dQw4w9WgXcQ')); //undefined
-// console.log(addTogether(2, '3')); //undefined
 // console.log(addTogether(2)([3])); //undefined
+// console.log(addTogether(2, '3')); //undefined
+// console.log(addTogether(5, undefined)); //undefined
 
 // --------------------------------------------------------------
 
