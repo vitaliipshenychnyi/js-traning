@@ -1322,3 +1322,20 @@
 // );
 
 // --------------------------------------------------------------
+function findUniq(arr) {
+  const newArr = arr.map(el => el.toLowerCase().split('').sort().join('')).sort();
+  return !!~newArr.slice(1).indexOf(newArr[0]) ? newArr[newArr.length - 1] : newArr[0];
+}
+
+// let res = newArr[0];
+// for (let i = 1; i < newArr.length; i += 1) {
+//   if (res === newArr[i]) {
+//     return newArr.find(el => el !== newArr[i]);
+//   }
+// }
+// return res;
+
+console.log(findUniq(['abc', 'cab', 'foo', 'bac']));
+console.log(findUniq(['foo', 'abc', 'cab', 'bac']));
+console.log(findUniq(['bac', 'abc', 'cab', 'foo']));
+console.log(findUniq(['bac', 'Abc', 'cAb', 'aaa']));
