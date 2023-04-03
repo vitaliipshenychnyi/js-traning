@@ -1080,16 +1080,28 @@
 
 // --------------------------------------------------------------
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!===== Найменше спільне кратне =====
+// ===== Найменше спільне кратне =====
 
 // function smallestCommons(arr) {
 //   arr.sort((a, b) => a - b);
-//   const arrAllNumbers = [arr[0]];
-//   for (let i = arr[0] + 1; i <= arr[1]; i += 1) {
+//   const arrAllNumbers = [];
+//   for (let i = arr[0]; i <= arr[1]; i += 1) {
 //     arrAllNumbers.push(i);
 //   }
 
-//   return arrAllNumbers;
+//   let a = arrAllNumbers[0];
+
+//   for (let i = 1; i < arrAllNumbers.length; i += 1) {
+//     let b = arrAllNumbers[i];
+//     let c = a;
+
+//     while (a && b) {
+//       a > b ? (a %= b) : (b %= a);
+//     }
+//     a = (c * arrAllNumbers[i]) / (a + b);
+//   }
+
+//   return a;
 // }
 
 // console.log(smallestCommons([1, 5])); //60
@@ -1322,20 +1334,23 @@
 // );
 
 // --------------------------------------------------------------
-function findUniq(arr) {
-  const newArr = arr.map(el => el.toLowerCase().split('').sort().join('')).sort();
-  return !!~newArr.slice(1).indexOf(newArr[0]) ? newArr[newArr.length - 1] : newArr[0];
-}
 
-// let res = newArr[0];
-// for (let i = 1; i < newArr.length; i += 1) {
-//   if (res === newArr[i]) {
-//     return newArr.find(el => el !== newArr[i]);
-//   }
+// function findUniq(arr) {
+//   const newArr = arr.map(el => el.toLowerCase().split('').sort().join('')).sort();
+//   return !!~newArr.slice(1).indexOf(newArr[0]) ? newArr[newArr.length - 1] : newArr[0];
 // }
-// return res;
 
-console.log(findUniq(['abc', 'cab', 'foo', 'bac']));
-console.log(findUniq(['foo', 'abc', 'cab', 'bac']));
-console.log(findUniq(['bac', 'abc', 'cab', 'foo']));
-console.log(findUniq(['bac', 'Abc', 'cAb', 'aaa']));
+// // let res = newArr[0];
+// // for (let i = 1; i < newArr.length; i += 1) {
+// //   if (res === newArr[i]) {
+// //     return newArr.find(el => el !== newArr[i]);
+// //   }
+// // }
+// // return res;
+
+// console.log(findUniq(['abc', 'cab', 'foo', 'bac']));
+// console.log(findUniq(['foo', 'abc', 'cab', 'bac']));
+// console.log(findUniq(['bac', 'abc', 'cab', 'foo']));
+// console.log(findUniq(['bac', 'Abc', 'cAb', 'aaa']));
+
+// --------------------------------------------------------------
