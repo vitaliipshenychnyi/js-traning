@@ -1335,6 +1335,8 @@
 
 // --------------------------------------------------------------
 
+// ===== Пошук унікального елемента =====
+
 // function findUniq(arr) {
 //   const newArr = arr.map(el => el.toLowerCase().split('').sort().join('')).sort();
 //   return !!~newArr.slice(1).indexOf(newArr[0]) ? newArr[newArr.length - 1] : newArr[0];
@@ -1352,5 +1354,86 @@
 // console.log(findUniq(['foo', 'abc', 'cab', 'bac']));
 // console.log(findUniq(['bac', 'abc', 'cab', 'foo']));
 // console.log(findUniq(['bac', 'Abc', 'cAb', 'aaa']));
+
+// --------------------------------------------------------------
+
+// ===== Пошук нарциса =====
+
+// Потрібно створити функцію яка буде шукати нарциса. Головна умова - нарциса знають всі,
+// нарцис не знає нікого.
+
+// function findNarcis(people) {
+//   const narcis = [];
+//   people.forEach(({ know, name }) => {
+//     if (!Object.values(know).length) {
+//       narcis.push(name);
+//     }
+//   });
+
+//   return narcis.length === 1 ? console.log(narcis[0]) : console.log('Not found');
+// }
+
+// // Not found
+// const people1 = [
+//   {
+//     name: 'Alex',
+//     know: ['Eva', 'Jhon'],
+//   },
+//   {
+//     name: 'Ivan',
+//     know: ['Jhon', 'Alex'],
+//   },
+//   {
+//     name: 'Eva',
+//     know: ['Alex', 'Jhon'],
+//   },
+//   {
+//     name: 'Jhon',
+//     know: ['Alex'],
+//   },
+// ];
+// //Not found
+// const people2 = [
+//   {
+//     name: 'Alex',
+//     know: ['Eva', 'Jhon'],
+//   },
+//   {
+//     name: 'Jhon',
+//     know: [],
+//   },
+//   {
+//     name: 'Eva',
+//     know: [],
+//   },
+//   {
+//     name: 'Ivan',
+//     know: ['Jhon', 'Alex'],
+//   },
+// ];
+
+// // jhon
+// const people3 = [
+//   {
+//     name: 'Alex',
+//     know: ['Eva', 'Jhon'],
+//   },
+//   {
+//     name: 'Jhon',
+//     know: [],
+//   },
+//   {
+//     name: 'Eva',
+//     know: ['Alex', 'Jhon'],
+//   },
+//   {
+//     name: 'Ivan',
+//     know: ['Jhon', 'Alex'],
+//   },
+// ];
+
+// findNarcis(people1);
+// findNarcis(people2);
+// findNarcis(people3);
 
 // --------------------------------------------------------------
