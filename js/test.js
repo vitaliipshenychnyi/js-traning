@@ -1362,16 +1362,16 @@
 // Потрібно створити функцію яка буде шукати нарциса. Головна умова - нарциса знають всі,
 // нарцис не знає нікого.
 
-function findNarcis(people) {
-  const narcis = [];
-  people.forEach(({ know, name }) => {
-    if (!Object.values(know).length) {
-      narcis.push(name);
-    }
-  });
+// function findNarcis(people) {
+//   const narcis = [];
+//   people.forEach(({ know, name }) => {
+//     if (!Object.values(know).length) {
+//       narcis.push(name);
+//     }
+//   });
 
-  return narcis.length === 1 ? console.log(narcis[0]) : console.log('Not found');
-}
+//   return narcis.length === 1 ? console.log(narcis[0]) : console.log('Not found');
+// }
 
 // // Not found
 // const people1 = [
@@ -1435,5 +1435,43 @@ function findNarcis(people) {
 // findNarcis(people1);
 // findNarcis(people2);
 // findNarcis(people3);
+
+// --------------------------------------------------------------
+
+// ===== Імплементація map на прототипі =====
+
+// Array.prototype.myMap = function (callback) {
+//   const newArray = [];
+
+//   for (let i = 0; i < this.length; i += 1) {
+//     newArray.push(callback(this[i], i, this));
+//   }
+
+//   return newArray;
+// };
+
+// console.log([23, 65, 98, 5, 13].myMap(item => item * 2)); // [46, 130, 196, 10, 26]
+// console.log(['naomi', 'quincy', 'camperbot'].myMap(element => element.toUpperCase())); // ["NAOMI", "QUINCY", "CAMPERBOT"]
+// console.log([1, 1, 2, 5, 2].myMap((element, index, array) => array[index + 1] || array[0])); // [1, 2, 5, 2, 1]
+
+// --------------------------------------------------------------
+
+// ===== Імплементація filter на прототипі =====
+
+// Array.prototype.myFilter = function (callback) {
+//   const newArray = [];
+
+//   for (let i = 0; i < this.length; i += 1) {
+//     if (callback(this[i], i, this)) {
+//       newArray.push(this[i]);
+//     }
+//   }
+
+//   return newArray;
+// };
+
+// console.log([23, 65, 98, 5, 13].myFilter(item => item % 2)); // [23, 65, 5, 13]
+// console.log(['naomi', 'quincy', 'camperbot'].myFilter(element => element === 'naomi')); // ["naomi"]
+// console.log([1, 1, 2, 5, 2].myFilter((element, index, array) => array.indexOf(element) === index)); // [1, 2, 5]
 
 // --------------------------------------------------------------
