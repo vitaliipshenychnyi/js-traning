@@ -1362,16 +1362,16 @@
 // Потрібно створити функцію яка буде шукати нарциса. Головна умова - нарциса знають всі,
 // нарцис не знає нікого.
 
-// function findNarcis(people) {
-//   const narcis = [];
-//   people.forEach(({ know, name }) => {
-//     if (!Object.values(know).length) {
-//       narcis.push(name);
-//     }
-//   });
+function findNarcis(people) {
+  const narcis = [];
+  people.forEach(({ know, name }) => {
+    if (!Object.values(know).length) {
+      narcis.push(name);
+    }
+  });
 
-//   return narcis.length === 1 ? console.log(narcis[0]) : console.log('Not found');
-// }
+  return narcis.length === 1 ? console.log(narcis[0]) : console.log('Not found');
+}
 
 // // Not found
 // const people1 = [
