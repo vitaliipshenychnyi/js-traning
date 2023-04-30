@@ -1475,3 +1475,386 @@
 // console.log([1, 1, 2, 5, 2].myFilter((element, index, array) => array.indexOf(element) === index)); // [1, 2, 5]
 
 // --------------------------------------------------------------
+
+// ===== Перевірка паліндрому =====
+
+// function palindrome(str) {
+//   const regex = /[a-zA-Z0-9]/g;
+//   const clearString = str.match(regex).join('').toLowerCase().split('');
+//   let reverseString = [];
+//   for (let i = clearString.length - 1; i >= 0; i -= 1) {
+//     reverseString.push(clearString[i]);
+//   }
+
+//   return clearString.join('') === reverseString.join('') ? true : false;
+// }
+// // true
+// console.log(palindrome('eye'));
+// console.log(palindrome('_eye'));
+// console.log(palindrome('race car'));
+// console.log(palindrome('A man, a plan, a canal. Panama'));
+// console.log(palindrome('never odd or even'));
+// console.log(palindrome('My age is 0, 0 si ega ym.'));
+// console.log(palindrome('0_0 (: /- :) 0-0'));
+
+// // false
+// console.log(palindrome('not a palindrome'));
+// console.log(palindrome('nope'));
+// console.log(palindrome('almostomla'));
+// console.log(palindrome('1 eye for of 1 eye.'));
+// console.log(palindrome('five|_/|four'));
+
+// --------------------------------------------------------------
+
+// ===== Конвертер римських чисел =====
+
+// function convertToRoman(num) {
+//   let units = '';
+//   let tens = '';
+//   let hundreds = '';
+//   let thousands = '';
+
+//   if (num < 10) {
+//     units = String(num);
+//   } else if (num >= 10 && num < 100) {
+//     tens = String(num).split('')[0];
+//     units = String(num).split('')[1];
+//   } else if (num >= 100 && num < 1000) {
+//     hundreds = String(num).split('')[0];
+//     tens = String(num).split('')[1];
+//     units = String(num).split('')[2];
+//   } else {
+//     thousands = String(num).split('')[0];
+//     hundreds = String(num).split('')[1];
+//     tens = String(num).split('')[2];
+//     units = String(num).split('')[3];
+//   }
+
+//   let result = [];
+
+//   switch (thousands) {
+//     case '1':
+//       result.push('M');
+//       break;
+//     case '2':
+//       result.push('MM');
+//       break;
+//     case '3':
+//       result.push('MMM');
+//       break;
+//   }
+
+//   switch (hundreds) {
+//     case '1':
+//       result.push('C');
+//       break;
+//     case '2':
+//       result.push('CC');
+//       break;
+//     case '3':
+//       result.push('CCC');
+//       break;
+//     case '4':
+//       result.push('CD');
+//       break;
+//     case '5':
+//       result.push('D');
+//       break;
+//     case '6':
+//       result.push('DC');
+//       break;
+//     case '7':
+//       result.push('DCC');
+//       break;
+//     case '8':
+//       result.push('DCCC');
+//       break;
+//     case '9':
+//       result.push('CM');
+//       break;
+//   }
+
+//   switch (tens) {
+//     case '1':
+//       result.push('X');
+//       break;
+//     case '2':
+//       result.push('XX');
+//       break;
+//     case '3':
+//       result.push('XXX');
+//       break;
+//     case '4':
+//       result.push('XL');
+//       break;
+//     case '5':
+//       result.push('L');
+//       break;
+//     case '6':
+//       result.push('LX');
+//       break;
+//     case '7':
+//       result.push('LXX');
+//       break;
+//     case '8':
+//       result.push('LXXX');
+//       break;
+//     case '9':
+//       result.push('XC');
+//       break;
+//   }
+
+//   switch (units) {
+//     case '1':
+//       result.push('I');
+//       break;
+//     case '2':
+//       result.push('II');
+//       break;
+//     case '3':
+//       result.push('III');
+//       break;
+//     case '4':
+//       result.push('IV');
+//       break;
+//     case '5':
+//       result.push('V');
+//       break;
+//     case '6':
+//       result.push('VI');
+//       break;
+//     case '7':
+//       result.push('VII');
+//       break;
+//     case '8':
+//       result.push('VIII');
+//       break;
+//     case '9':
+//       result.push('IX');
+//       break;
+//   }
+
+//   return result.join('');
+// }
+
+// console.log(convertToRoman(2)); // II
+// console.log(convertToRoman(3)); // III
+// console.log(convertToRoman(4)); // IV
+// console.log(convertToRoman(5)); // V
+// console.log(convertToRoman(9)); // IX
+// console.log(convertToRoman(12)); // XII
+// console.log(convertToRoman(16)); // XVI
+// console.log(convertToRoman(29)); // XXIX
+// console.log(convertToRoman(44)); // XLIV
+// console.log(convertToRoman(45)); // XLV
+// console.log(convertToRoman(68)); // LXVIII
+// console.log(convertToRoman(83)); // LXXXIII
+// console.log(convertToRoman(97)); // XCVII
+// console.log(convertToRoman(99)); // XCIX
+// console.log(convertToRoman(400)); // CD
+// console.log(convertToRoman(500)); // D
+// console.log(convertToRoman(501)); // DI
+// console.log(convertToRoman(649)); // DCXLIX
+// console.log(convertToRoman(798)); // DCCXCVIII
+// console.log(convertToRoman(891)); // DCCCXCI
+// console.log(convertToRoman(1000)); // M
+// console.log(convertToRoman(1004)); // MIV
+// console.log(convertToRoman(1006)); // MVI
+// console.log(convertToRoman(1023)); // MXXIII
+// console.log(convertToRoman(2014)); // MMXIV
+// console.log(convertToRoman(3999)); // MMMCMXCIX
+
+// --------------------------------------------------------------
+
+// ===== Шифр Цезаря =====
+
+// function rot13(str) {
+//   let unCodeStr = [];
+
+//   for (const element of str.split(' ')) {
+//     let word = [];
+//     for (let i = 0; i < element.length; i += 1) {
+//       const uniCodLetter = element.split('')[i].charCodeAt();
+//       if (uniCodLetter === 33 || uniCodLetter === 46 || uniCodLetter === 63) {
+//         word.push(String.fromCharCode(uniCodLetter));
+//       } else {
+//         uniCodLetter - 13 < 65
+//           ? word.push(String.fromCharCode(uniCodLetter + 13))
+//           : word.push(String.fromCharCode(uniCodLetter - 13));
+//       }
+//     }
+//     unCodeStr.push(word.join(''));
+//   }
+
+//   // str.charCodeAt(); // отримання юнікоду символу
+//   // String.fromCharCode(unicod); // отримання символу по юнікоду
+//   return unCodeStr.join(' ');
+// }
+
+// console.log(rot13('SERR PBQR PNZC')); // FREE CODE CAMP
+// console.log(rot13('SERR CVMMN!')); // FREE PIZZA!
+// console.log(rot13('SERR YBIR?')); // FREE LOVE?
+// // // THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+// console.log(rot13('GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.'));
+
+// --------------------------------------------------------------
+
+// ===== Валідатор мобільного номера =====
+
+// function telephoneCheck(str) {
+//   if (
+//     str.match(/\d/g).length < 10 ||
+//     str.match(/\d/g).length > 11 ||
+//     (str.includes('(') && !str.includes(')')) ||
+//     (!str.includes('(') && str.includes(')')) ||
+//     str.startsWith('-') ||
+//     str.endsWith(')') ||
+//     str.includes('?')
+//   ) {
+//     return false;
+//   }
+
+//   if (
+//     (str.match(/\d/g).length === 11 && !str.startsWith('1')) ||
+//     str.match(/\S+/)[0].length === 2
+//   ) {
+//     return false;
+//   }
+//   return true;
+// }
+
+// // true
+// console.log(telephoneCheck('1 555-555-5555'));
+// console.log(telephoneCheck('1 (555) 555-5555'));
+// console.log(telephoneCheck('5555555555'));
+// console.log(telephoneCheck('555-555-5555'));
+// console.log(telephoneCheck('(555)555-5555'));
+// console.log(telephoneCheck('1(555)555-5555'));
+// console.log(telephoneCheck('1 555 555 5555'));
+// console.log(telephoneCheck('1 456 789 4444'));
+// // // false
+// console.log(telephoneCheck('2 (757) 622-7382'));
+// console.log(telephoneCheck('0 (757) 622-7382'));
+// console.log(telephoneCheck('-1 (757) 622-7382'));
+// console.log(telephoneCheck('2 757 622-7382'));
+// console.log(telephoneCheck('10 (757) 622-7382'));
+// console.log(telephoneCheck('27576227382'));
+// console.log(telephoneCheck('(275)76227382'));
+// console.log(telephoneCheck('2(757)6227382'));
+// console.log(telephoneCheck('2(757)622-7382'));
+// console.log(telephoneCheck('555)-555-5555'));
+// console.log(telephoneCheck('(555-555-5555'));
+// console.log(telephoneCheck('(555)5(55?)-5555'));
+// console.log(telephoneCheck('55 55-55-555-5'));
+// console.log(telephoneCheck('11 555-555-5555'));
+// console.log(telephoneCheck('555-5555'));
+// console.log(telephoneCheck('5555555'));
+// console.log(telephoneCheck('1 555)555-5555'));
+// console.log(telephoneCheck('123**&!!asdf#'));
+// console.log(telephoneCheck('55555555'));
+// console.log(telephoneCheck('(6054756961)'));
+
+// --------------------------------------------------------------
+
+// ===== Касовий апарат =====
+
+function checkCashRegister(price, cash, cid) {
+  let change = cash - price;
+  let cashCoin = 0;
+  let cashBanknote = 0;
+
+  for (let i = 0; i <= 3; i += 1) {
+    cashCoin += cid[i][1];
+  }
+
+  for (let i = 4; i <= 8; i += 1) {
+    cashBanknote += cid[i][1];
+  }
+
+  if (cashCoin + cashBanknote === change) {
+    return { status: 'CLOSED', change: cid };
+  }
+  if (cashCoin + cashBanknote < change || change - Math.floor(change) > cashCoin) {
+    return { status: 'INSUFFICIENT_FUNDS', change: [] };
+  }
+
+  // потрібна логіка для перших двох варіантів
+
+  return change;
+}
+
+// {status: "OPEN", change: [["QUARTER", 0.5]]}
+console.log(
+  checkCashRegister(19.5, 20, [
+    ['PENNY', 1.01], // 0.01
+    ['NICKEL', 2.05], // 0.05
+    ['DIME', 3.1], // 0.1
+    ['QUARTER', 4.25], // 0.25
+    ['ONE', 90], // 1
+    ['FIVE', 55], // 5
+    ['TEN', 20], // 10
+    ['TWENTY', 60], // 20
+    ['ONE HUNDRED', 100], // 100
+  ]),
+);
+
+// {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}
+console.log(
+  checkCashRegister(3.26, 100, [
+    ['PENNY', 1.01],
+    ['NICKEL', 2.05],
+    ['DIME', 3.1],
+    ['QUARTER', 4.25],
+    ['ONE', 90],
+    ['FIVE', 55],
+    ['TEN', 20],
+    ['TWENTY', 60],
+    ['ONE HUNDRED', 100],
+  ]),
+);
+
+// {status: "INSUFFICIENT_FUNDS", change: []}
+console.log(
+  checkCashRegister(19.5, 20, [
+    ['PENNY', 0.01],
+    ['NICKEL', 0],
+    ['DIME', 0],
+    ['QUARTER', 0],
+    ['ONE', 0],
+    ['FIVE', 0],
+    ['TEN', 0],
+    ['TWENTY', 0],
+    ['ONE HUNDRED', 0],
+  ]),
+);
+
+// {status: "INSUFFICIENT_FUNDS", change: []}
+console.log(
+  checkCashRegister(19.5, 20, [
+    ['PENNY', 0.01],
+    ['NICKEL', 0],
+    ['DIME', 0],
+    ['QUARTER', 0],
+    ['ONE', 1],
+    ['FIVE', 0],
+    ['TEN', 0],
+    ['TWENTY', 0],
+    ['ONE HUNDRED', 0],
+  ]),
+);
+
+// {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}
+console.log(
+  checkCashRegister(19.5, 20, [
+    ['PENNY', 0.5],
+    ['NICKEL', 0],
+    ['DIME', 0],
+    ['QUARTER', 0],
+    ['ONE', 0],
+    ['FIVE', 0],
+    ['TEN', 0],
+    ['TWENTY', 0],
+    ['ONE HUNDRED', 0],
+  ]),
+);
+// --------------------------------------------------------------
