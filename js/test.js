@@ -1758,103 +1758,200 @@
 
 // ===== Касовий апарат =====
 
-function checkCashRegister(price, cash, cid) {
-  let change = cash - price;
-  let cashCoin = 0;
-  let cashBanknote = 0;
+// function checkCashRegister(price, cash, cid) {
+//   let change = cash - price;
+//   let cashCoin = 0;
+//   let cashBanknote = 0;
+//   let arrresult = [];
 
-  for (let i = 0; i <= 3; i += 1) {
-    cashCoin += cid[i][1];
-  }
+//   // підрахунок суми монет
+//   for (let i = 0; i <= 3; i += 1) {
+//     cashCoin += cid[i][1];
+//   }
 
-  for (let i = 4; i <= 8; i += 1) {
-    cashBanknote += cid[i][1];
-  }
+//   // підрахунок суми банкнот
+//   for (let i = 4; i <= 8; i += 1) {
+//     cashBanknote += cid[i][1];
+//   }
 
-  if (cashCoin + cashBanknote === change) {
-    return { status: 'CLOSED', change: cid };
-  }
-  if (cashCoin + cashBanknote < change || change - Math.floor(change) > cashCoin) {
-    return { status: 'INSUFFICIENT_FUNDS', change: [] };
-  }
+//   // логіка, яка відповідає за пусту касу
+//   if (cashCoin + cashBanknote === change) {
+//     return { status: 'CLOSED', change: cid };
+//   }
 
-  // потрібна логіка для перших двох варіантів
+//   // логіка, яка відповідає за нехватку коштів в касі
+//   if (cashCoin + cashBanknote < change || change - Math.floor(change) > cashCoin) {
+//     return { status: 'INSUFFICIENT_FUNDS', change: [] };
+//   }
 
-  return change;
-}
+//   // логіка, яка рахує як дати здачу
+//   if (change / 100 > 1) {
+//     if (cid[8][1] - parseInt(change / 100) * 100 > 0) {
+//       cid[8][1] = parseInt(change / 100) * 100;
+//       arrresult.push(cid[8]);
+//       change = (change - parseInt(change / 100) * 100).toFixed(2);
+//     } else {
+//       change = (change - cid[8][1]).toFixed(2);
+//       arrresult.push(cid[8]);
+//     }
+//   }
+//   if (change / 20 > 1) {
+//     if (cid[7][1] - parseInt(change / 20) * 20 > 0) {
+//       cid[7][1] = parseInt(change / 20) * 20;
+//       arrresult.push(cid[7]);
+//       change = (change - parseInt(change / 20) * 20).toFixed(2);
+//     } else {
+//       change = (change - cid[7][1]).toFixed(2);
+//       arrresult.push(cid[7]);
+//     }
+//   }
+//   if (change / 10 > 1) {
+//     if (cid[6][1] - parseInt(change / 10) * 10 > 0) {
+//       cid[6][1] = parseInt(change / 10) * 10;
+//       arrresult.push(cid[6]);
+//       change = (change - parseInt(change / 10) * 10).toFixed(2);
+//     } else {
+//       change = (change - cid[6][1]).toFixed(2);
+//       arrresult.push(cid[6]);
+//     }
+//   }
+//   if (change / 5 > 1) {
+//     if (cid[5][1] - parseInt(change / 5) * 5 > 0) {
+//       cid[5][1] = parseInt(change / 5) * 5;
+//       arrresult.push(cid[5]);
+//       change = (change - parseInt(change / 5) * 5).toFixed(2);
+//     } else {
+//       change = (change - cid[5][1]).toFixed(2);
+//       arrresult.push(cid[5]);
+//     }
+//   }
+//   if (change / 1 > 1) {
+//     if (cid[4][1] - parseInt(change) > 0) {
+//       cid[4][1] = parseInt(change);
+//       arrresult.push(cid[4]);
+//       change = (change - parseInt(change)).toFixed(2);
+//     } else {
+//       change = (change - cid[4][1]).toFixed(2);
+//       arrresult.push(cid[4]);
+//     }
+//   }
+//   if (change / 0.25 > 1) {
+//     if (cid[3][1] - parseInt(change / 0.25) * 0.25 > 0) {
+//       cid[3][1] = parseInt(change / 0.25) * 0.25;
+//       arrresult.push(cid[3]);
+//       change = (change - parseInt(change / 0.25) * 0.25).toFixed(2);
+//     } else {
+//       change = (change - cid[3][1]).toFixed(2);
+//       arrresult.push(cid[3]);
+//     }
+//   }
+//   if (change / 0.1 > 1) {
+//     if (cid[2][1] - parseInt(change / 0.1) * 0.1 > 0) {
+//       cid[2][1] = parseInt(change / 0.1) * 0.1;
+//       arrresult.push(cid[2]);
+//       change = (change - parseInt(change / 0.1) * 0.1).toFixed(2);
+//     } else {
+//       change = (change - cid[2][1]).toFixed(2);
+//       arrresult.push(cid[2]);
+//     }
+//   }
+//   if (change / 0.05 > 1) {
+//     if (cid[1][1] - parseInt(change / 0.05) * 0.05 > 0) {
+//       cid[1][1] = parseInt(change / 0.05) * 0.05;
+//       arrresult.push(cid[1]);
+//       change = (change - parseInt(change / 0.05) * 0.05).toFixed(2);
+//     } else {
+//       change = (change - cid[1][1]).toFixed(2);
+//       arrresult.push(cid[1]);
+//     }
+//   }
+//   if (change / 0.01 > 1) {
+//     if (cid[0][1] - parseInt(change / 0.01) * 0.01 > 0) {
+//       cid[0][1] = parseInt(change / 0.01) * 0.01;
+//       arrresult.push(cid[0]);
+//       change -= parseInt(change / 0.01) * 0.01;
+//     } else {
+//       change = (change - cid[0][1]).toFixed(2);
+//       arrresult.push(cid[0]);
+//     }
+//   }
 
-// {status: "OPEN", change: [["QUARTER", 0.5]]}
-console.log(
-  checkCashRegister(19.5, 20, [
-    ['PENNY', 1.01], // 0.01
-    ['NICKEL', 2.05], // 0.05
-    ['DIME', 3.1], // 0.1
-    ['QUARTER', 4.25], // 0.25
-    ['ONE', 90], // 1
-    ['FIVE', 55], // 5
-    ['TEN', 20], // 10
-    ['TWENTY', 60], // 20
-    ['ONE HUNDRED', 100], // 100
-  ]),
-);
+//   return { status: 'OPEN', change: arrresult };
+// }
 
-// {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}
-console.log(
-  checkCashRegister(3.26, 100, [
-    ['PENNY', 1.01],
-    ['NICKEL', 2.05],
-    ['DIME', 3.1],
-    ['QUARTER', 4.25],
-    ['ONE', 90],
-    ['FIVE', 55],
-    ['TEN', 20],
-    ['TWENTY', 60],
-    ['ONE HUNDRED', 100],
-  ]),
-);
+// // {status: "OPEN", change: [["QUARTER", 0.5]]}
+// console.log(
+//   checkCashRegister(19.5, 20, [
+//     ['PENNY', 1.01], // 0.01
+//     ['NICKEL', 2.05], // 0.05
+//     ['DIME', 3.1], // 0.1
+//     ['QUARTER', 4.25], // 0.25
+//     ['ONE', 90], // 1
+//     ['FIVE', 55], // 5
+//     ['TEN', 20], // 10
+//     ['TWENTY', 60], // 20
+//     ['ONE HUNDRED', 100], // 100
+//   ]),
+// );
 
-// {status: "INSUFFICIENT_FUNDS", change: []}
-console.log(
-  checkCashRegister(19.5, 20, [
-    ['PENNY', 0.01],
-    ['NICKEL', 0],
-    ['DIME', 0],
-    ['QUARTER', 0],
-    ['ONE', 0],
-    ['FIVE', 0],
-    ['TEN', 0],
-    ['TWENTY', 0],
-    ['ONE HUNDRED', 0],
-  ]),
-);
+// // {status: "OPEN", change: [["TWENTY", 60], ["TEN", 20], ["FIVE", 15], ["ONE", 1], ["QUARTER", 0.5], ["DIME", 0.2], ["PENNY", 0.04]]}
+// console.log(
+//   checkCashRegister(3.26, 100, [
+//     ['PENNY', 1.01],
+//     ['NICKEL', 2.05],
+//     ['DIME', 3.1],
+//     ['QUARTER', 4.25],
+//     ['ONE', 90],
+//     ['FIVE', 55],
+//     ['TEN', 20],
+//     ['TWENTY', 60],
+//     ['ONE HUNDRED', 100],
+//   ]),
+// );
 
-// {status: "INSUFFICIENT_FUNDS", change: []}
-console.log(
-  checkCashRegister(19.5, 20, [
-    ['PENNY', 0.01],
-    ['NICKEL', 0],
-    ['DIME', 0],
-    ['QUARTER', 0],
-    ['ONE', 1],
-    ['FIVE', 0],
-    ['TEN', 0],
-    ['TWENTY', 0],
-    ['ONE HUNDRED', 0],
-  ]),
-);
+// // {status: "INSUFFICIENT_FUNDS", change: []}
+// console.log(
+//   checkCashRegister(19.5, 20, [
+//     ['PENNY', 0.01],
+//     ['NICKEL', 0],
+//     ['DIME', 0],
+//     ['QUARTER', 0],
+//     ['ONE', 0],
+//     ['FIVE', 0],
+//     ['TEN', 0],
+//     ['TWENTY', 0],
+//     ['ONE HUNDRED', 0],
+//   ]),
+// );
 
-// {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}
-console.log(
-  checkCashRegister(19.5, 20, [
-    ['PENNY', 0.5],
-    ['NICKEL', 0],
-    ['DIME', 0],
-    ['QUARTER', 0],
-    ['ONE', 0],
-    ['FIVE', 0],
-    ['TEN', 0],
-    ['TWENTY', 0],
-    ['ONE HUNDRED', 0],
-  ]),
-);
+// // {status: "INSUFFICIENT_FUNDS", change: []}
+// console.log(
+//   checkCashRegister(19.5, 20, [
+//     ['PENNY', 0.01],
+//     ['NICKEL', 0],
+//     ['DIME', 0],
+//     ['QUARTER', 0],
+//     ['ONE', 1],
+//     ['FIVE', 0],
+//     ['TEN', 0],
+//     ['TWENTY', 0],
+//     ['ONE HUNDRED', 0],
+//   ]),
+// );
+
+// // {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}
+// console.log(
+//   checkCashRegister(19.5, 20, [
+//     ['PENNY', 0.5],
+//     ['NICKEL', 0],
+//     ['DIME', 0],
+//     ['QUARTER', 0],
+//     ['ONE', 0],
+//     ['FIVE', 0],
+//     ['TEN', 0],
+//     ['TWENTY', 0],
+//     ['ONE HUNDRED', 0],
+//   ]),
+// );
+
 // --------------------------------------------------------------
