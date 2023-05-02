@@ -1955,3 +1955,26 @@
 // );
 
 // --------------------------------------------------------------
+
+// function accum(s) {
+//   let result = [];
+//   const arr = s.split('');
+//   for (let i = 0; i < arr.length; i += 1) {
+//     let res = [];
+//     res.push(arr[i].toUpperCase());
+//     for (let j = 1; j <= i; j += 1) {
+//       res.push(arr[i].toLowerCase());
+//     }
+//     result.push(res.join(''));
+//   }
+//   return result.join('-');
+// }
+
+// //*************⬆️
+// // function accum(s) {
+// // 	return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+// // }
+
+// console.log(accum('ZpglnRxqenU'));
+
+// --------------------------------------------------------------
