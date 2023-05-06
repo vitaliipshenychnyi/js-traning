@@ -1978,3 +1978,99 @@
 // console.log(accum('ZpglnRxqenU'));
 
 // --------------------------------------------------------------
+
+// var summation = function (num) {
+//   let sum = 0;
+//   for (let i = num; i > 0; i -= 1) {
+//     sum += i;
+//   }
+//   return sum;
+
+// //*************⬆️
+//   return (num * (num + 1)) / 2;
+// };
+
+// console.log(summation(1)); // 1
+// console.log(summation(2)); // 3
+// console.log(summation(8)); // 36
+
+// --------------------------------------------------------------
+
+// function printerError(s) {
+//   const arr = s.split('');
+//   let err = 0;
+//   for (const el of arr) {
+//     if (el.charCodeAt() > 109) {
+//       err += 1;
+//     }
+//   }
+
+//   return err + '/' + s.length;
+// }
+
+// //*************⬆️
+
+// function printerError(s) {
+//   return s.match(/[n-z]+/g || []).join('').length + '/' + s.length;
+//   AБО
+// return `${s.replace(/[a-m]/gi, "").length}/${s.length}`;
+// }
+
+// 3/56
+// console.log(printerError('aaaaaaaaaawaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz'));
+
+// --------------------------------------------------------------
+
+// function getMiddle(s) {
+//   if (s.length === 1) {
+//     return s;
+//   }
+
+//   return s.length % 2 ? s.charAt(s.length / 2) : s.slice(s.length / 2 - 1, s.length / 2 + 1);
+// }
+
+// console.log(getMiddle('test')); // es
+// console.log(getMiddle('testing')); // t
+// console.log(getMiddle('middle')); // dd
+// console.log(getMiddle('A')); // A
+
+// --------------------------------------------------------------
+
+// function getCount(str) {
+//   return str.match(/[a,e,i,o,u]/g || []).length;
+
+//   //АБО
+
+//   return str.replace(/[^a,e,i,o,u]/g, '').length;
+// }
+
+// console.log(getCount('abracadabra')); // 5
+
+// --------------------------------------------------------------
+
+// function longest(s1, s2) {
+//   const arr = (s1 + s2).split('').sort();
+//   let res = [];
+
+//   for (let el of arr) {
+//     if (!res.includes(el)) {
+//       res.push(el);
+//     }
+//   }
+
+//   return res.join('');
+// }
+
+// //*************⬆️
+
+// function longest(s1, s2) {
+//   return [...new Set(s1 + s2)].sort().join('');
+// }
+
+// // "aehrsty"
+// console.log(longest('aretheyhere', 'yestheyarehere'));
+
+// // "abcdefghilnoprstu"
+// console.log(longest('loopingisfunbutdangerous', 'lessdangerousthancoding'));
+
+// --------------------------------------------------------------
