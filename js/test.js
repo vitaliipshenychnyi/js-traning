@@ -2239,3 +2239,29 @@
 // console.log(validatePIN('a234'));
 
 // --------------------------------------------------------------
+
+// ===== Highest Scoring Word =====
+
+// Пощук слова за більшою сумою його літер по позиції в абетці
+
+// function high(x) {
+//   let wordScore = '';
+//   let maxScore = 0;
+
+//   for (const el of x.split(' ')) {
+//     const score = el.split('').reduce((acc, el) => (acc += el.charCodeAt()-96), 0);
+//     console.log(score);
+//     if (score > maxScore) {
+//       maxScore = score;
+//       wordScore = el;
+//     }
+//   }
+
+//   return wordScore;
+// }
+
+// console.log(high('man i need a taxi up to ubud')); // 'taxi'
+// console.log(high('what time are we climbing up the volcano')); // 'volcano'
+// console.log(high('take me to semynak')); // 'semynak'
+
+// --------------------------------------------------------------
