@@ -2113,3 +2113,129 @@
 // console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])); // 5
 
 // --------------------------------------------------------------
+// function sortArray(array) {
+//   const oddNumbersSort = array.filter(el => el % 2).sort((a, b) => a - b);
+
+//   let res = [];
+//   let i = 0;
+//   for (const el of array) {
+//     if (el % 2) {
+//       res.push(oddNumbersSort[i]);
+//       i += 1;
+//     } else {
+//       res.push(el);
+//     }
+//   }
+
+//   return res;
+// }
+
+//     //*************⬆️
+
+// function sortArray(array) {
+//   const oddNumbersSort = array.filter(el => el % 2).sort((a, b) => a - b);
+//   return array.map(el => (el % 2 ? oddNumbersSort.shift() : el));
+// }
+
+// console.log(sortArray([5, 3, 2, 8, 1, 4])); // [1, 3, 2, 8, 5, 4]
+// console.log(sortArray([5, 3, 1, 8, 0])); // [1, 3, 5, 8, 0]
+// console.log(sortArray([])); // []
+
+// --------------------------------------------------------------
+
+// function findShort(s) {
+//   return s.split(' ').sort((a, b) => a.length - b.length)[0].length;
+// }
+
+// console.log(findShort('bitcoin take over the world maybe who knows perhaps')); // 3
+// console.log(findShort('turns out random test cases are easier than writing out basic ones')); // 3
+
+// --------------------------------------------------------------
+
+// function alphabetPosition(text) {
+//   const fix = text.toLowerCase().match(/[a-z]/g);
+//   console.log(fix);
+//   return fix === null ? '' : fix.map(el => el.charCodeAt() - 96).join(' ');
+// }
+
+// // "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+// console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+
+// // "18 20 1"
+// console.log(alphabetPosition('r &3$ta7'));
+
+// // ""
+// console.log(alphabetPosition(' 8 9 7'));
+
+// --------------------------------------------------------------
+
+// function getSum(a, b) {
+//   let sum = 0;
+//   if (a < b) {
+//     for (let i = a; i <= b; i += 1) {
+//       sum += i;
+//     }
+//   } else if (a > b) {
+//     for (let i = b; i <= a; i += 1) {
+//       sum += i;
+//     }
+//   } else {
+//     return a;
+//   }
+//   return sum;
+// }
+
+// //*************⬆️
+
+// const GetSum = (a, b) => {
+//   let min = Math.min(a, b),
+//     max = Math.max(a, b);
+//   return ((max - min + 1) * (min + max)) / 2;
+// };
+
+// console.log(getSum(0, -1)); // -1
+// console.log(getSum(2, 2)); // 2
+// console.log(getSum(-1, 3)); // 5
+
+// --------------------------------------------------------------
+
+// function countSmileys(arr) {
+//   return arr.filter(
+//     el =>
+//       (el.includes('D') || el.includes(')')) &&
+//       (el.includes(':') || el.includes(';')) &&
+//       (el.includes('-') || el.includes('~') || el.length === 2) &&
+//       el.length <= 3,
+//   ).length;
+// }
+
+// //*************⬆️
+
+// function countSmileys(arr) {
+//   return arr.filter(el => /^[:;][-~]?[)D]$/.test(el)).length;
+// }
+
+// console.log(countSmileys([])); // 0
+// console.log(countSmileys([':D', ':~)', ';~D', ':)'])); // 4
+// console.log(countSmileys([':)', ':(', ':D', ':O', ':;'])); // 2
+// console.log(countSmileys([':-)', ';~D', ':-D', ':_D'])); // 3
+// console.log(countSmileys([':---)', '))', ';~~D', ';D'])); // 1
+
+// --------------------------------------------------------------
+
+// function validatePIN(pin) {
+//   return (pin.length === 4 && /\d{4}/.test(pin)) || (pin.length === 6 && /\d{6}/.test(pin))
+//     ? true
+//     : false;
+// }
+
+// //*************⬆️
+
+// function validatePIN(pin) {
+//   return /^(\d{4}|\d{6})$/.test(pin);
+// }
+// console.log(validatePIN('-1.234'));
+// console.log(validatePIN('-12345'));
+// console.log(validatePIN('a234'));
+
+// --------------------------------------------------------------
