@@ -2074,3 +2074,42 @@
 // console.log(longest('loopingisfunbutdangerous', 'lessdangerousthancoding'));
 
 // --------------------------------------------------------------
+// function minMax(arr) {
+//   return arr.length === 1
+//     ? [arr[0], arr[0]]
+//     : [arr.sort((a, b) => a - b)[0], arr.sort((a, b) => a - b)[arr.length - 1]]; // fix me!
+
+// //*************⬆️
+
+//     return [Math.min(...arr), Math.max(...arr)];
+// }
+
+// console.log(minMax([1, 2, 3, 4, 5])); // 15
+// console.log(minMax([1])); // 15
+
+// --------------------------------------------------------------
+
+// function findOdd(A) {
+//   const res = {};
+//   A.forEach(el => {
+//     res.hasOwnProperty(el) ? (res[el] += 1) : (res[el] = 1);
+//   });
+
+//   for (const el of Object.entries(res)) {
+//     if (el[1] % 2) {
+//       return Number(el[0]);
+//     }
+//   }
+
+//     //*************⬆️
+
+//     return A.reduce((a, b) => a ^ b)
+// }
+
+// console.log(findOdd([0])); // 0
+// console.log(findOdd([1, 1, 2])); // 2
+// console.log(findOdd([0, 1, 0, 1, 0])); // 0
+// console.log(findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1])); // 4
+// console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5])); // 5
+
+// --------------------------------------------------------------
